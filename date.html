@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+</head>
+<body>
+  <input type="date" id="dates">date
+  <input type="submit" onclick="validate_fechaMayorQue();" value="validar">
+  <script>
+  var fechaInicial=document.getElementById("dates").value;
+    var fechaFinal="28/01/2019";
+    function validate_fechaMayorQue(fechaInicial,fechaFinal)
+  
+    {
+        valuesStart=fechaInicial.split("/");
+        valuesEnd=fechaFinal.split("/");
+
+        // Verificamos que la fecha no sea posterior a la actual
+        var dateStart=new Date(valuesStart[2],(valuesStart[1]-1),valuesStart[0]);
+        var dateEnd=new Date(valuesEnd[2],(valuesEnd[1]-1),valuesEnd[0]);
+        if(dateStart>=dateEnd)
+        {
+            return 0;
+        }
+        return 1;
+    }
+
+    
+    if(validate_fechaMayorQue(fechaInicial,fechaFinal))
+    {
+        document.write("La fecha "+fechaFinal+" es superior a la fecha "+fechaInicial);
+    }else{
+        document.write("La fecha "+fechaFinal+" NO es superior a la fecha "+fechaInicial);
+    }
+</script>
+    
+</body>
+</html>
